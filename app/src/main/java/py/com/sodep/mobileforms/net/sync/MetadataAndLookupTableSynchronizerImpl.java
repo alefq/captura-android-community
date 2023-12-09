@@ -2,11 +2,12 @@ package py.com.sodep.mobileforms.net.sync;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.content.LocalBroadcastManager;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.util.Log;
 
 
 
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import java.util.List;
 
@@ -72,7 +73,8 @@ public class MetadataAndLookupTableSynchronizerImpl implements MetadataListener,
 	@Override
 	public void unexpectedError(Throwable throwable) {
 		broadcast(BroadcastActions.ACTION_SYNC_UNEXPECTED_ERROR);
-        //Crashlytics.logException(throwable);
+		FirebaseCrashlytics crashlytics = FirebaseCrashlytics.getInstance();
+		crashlytics.recordException(throwable);
 	}
 
 	private FormsDAO formsDAO;

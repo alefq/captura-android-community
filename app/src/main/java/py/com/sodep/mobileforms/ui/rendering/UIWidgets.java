@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import py.com.sodep.mf.form.model.element.MFElement;
-import py.com.sodep.captura.forms.R;
+import io.github.jokoframework.chake.R;
 import py.com.sodep.mobileforms.ui.list.SpinnerLabelFormatter;
 import py.com.sodep.mobileforms.ui.rendering.objects.LookupData;
 import android.content.Context;

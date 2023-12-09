@@ -4,7 +4,7 @@ import py.com.sodep.mobileforms.net.sync.services.SyncService;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 
 /**
  * This receiver is meant for starting the DataSync service at the given

@@ -19,7 +19,7 @@
             android:layout_height="200dp"
             android:layout_gravity="center_horizontal"
             android:contentDescription="@string/captura_logo"
-            android:src="@drawable/captura_logo" />
+            android:src="@drawable/chake_logo" />
 
         <RelativeLayout
             android:id="@+id/welcome01_layout"

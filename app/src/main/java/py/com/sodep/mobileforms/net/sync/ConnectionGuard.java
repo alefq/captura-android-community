@@ -9,7 +9,7 @@ import py.com.sodep.mf.exchange.net.ServerConnection;
 import py.com.sodep.mf.exchange.objects.upload.UploadProgress;
 import py.com.sodep.mobileforms.application.BroadcastActions;
 import android.content.Intent;
-import android.support.v4.content.LocalBroadcastManager;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.util.Log;
 
 class ConnectionGuard {

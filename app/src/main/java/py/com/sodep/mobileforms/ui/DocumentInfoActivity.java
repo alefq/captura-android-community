@@ -4,7 +4,7 @@ import java.text.DateFormat;
 import java.util.Date;
 
 import py.com.sodep.mf.exchange.objects.metadata.Form;
-import py.com.sodep.captura.forms.R;
+import io.github.jokoframework.chake.R;
 import py.com.sodep.mobileforms.dataservices.documents.DocumentMetadata;
 import android.app.Activity;
 import android.content.Context;

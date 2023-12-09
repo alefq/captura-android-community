@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.TimeZone;
 
 import py.com.sodep.mf.exchange.objects.metadata.Form;
-import py.com.sodep.mobileforms.application.MFApplication;
+import io.github.jokoframework.chake.MFApplication;
 import py.com.sodep.mobileforms.dataservices.DocumentsDataSource;
 import py.com.sodep.mobileforms.dataservices.FormsDAO;
 import py.com.sodep.mobileforms.dataservices.documents.Document;

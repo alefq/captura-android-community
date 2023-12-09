@@ -8,7 +8,7 @@ import android.content.DialogInterface;
 import java.text.DateFormat;
 import java.util.Date;
 
-import py.com.sodep.captura.forms.R;
+import io.github.jokoframework.chake.R;
 import py.com.sodep.mf.exchange.exceptions.HttpResponseException;
 import py.com.sodep.mf.exchange.objects.error.ErrorResponse;
 import py.com.sodep.mf.exchange.objects.metadata.Form;

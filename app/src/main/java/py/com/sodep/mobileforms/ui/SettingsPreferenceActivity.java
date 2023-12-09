@@ -1,8 +1,8 @@
 package py.com.sodep.mobileforms.ui;
 
-import py.com.sodep.captura.forms.R;
+import io.github.jokoframework.chake.R;
 import py.com.sodep.mobileforms.application.BroadcastActions;
-import py.com.sodep.mobileforms.application.MFApplication;
+import io.github.jokoframework.chake.MFApplication;
 import py.com.sodep.mobileforms.settings.AppSettings;
 import py.com.sodep.mobileforms.ui.preferences.ActionPreference;
 import py.com.sodep.mobileforms.ui.preferences.SimpleTextPreference;
@@ -13,7 +13,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
-import android.support.v4.content.LocalBroadcastManager;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.view.View;
 import android.view.View.OnClickListener;
 

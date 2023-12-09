@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import py.com.sodep.captura.forms.R;
+import io.github.jokoframework.chake.R;
 import py.com.sodep.mobileforms.dataservices.documents.DocumentMetadata;
 import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;

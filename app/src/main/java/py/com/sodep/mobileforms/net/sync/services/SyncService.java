@@ -11,7 +11,7 @@ import py.com.sodep.mf.exchange.net.MetadataAndLookupTableSynchronizer;
 import py.com.sodep.mf.exchange.net.ServerConnection;
 import py.com.sodep.mf.exchange.net.ServerResponse;
 import py.com.sodep.mf.exchange.objects.error.ErrorResponse;
-import py.com.sodep.captura.forms.R;
+import io.github.jokoframework.chake.R;
 import py.com.sodep.mobileforms.application.BroadcastActions;
 import py.com.sodep.mobileforms.exceptions.NoConnectionInfoException;
 import py.com.sodep.mobileforms.log.AndroidLogger;
@@ -31,9 +31,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Build;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
-import android.support.v4.content.LocalBroadcastManager;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.util.Log;
 
 

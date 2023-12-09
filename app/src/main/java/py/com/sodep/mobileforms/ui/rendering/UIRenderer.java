@@ -25,7 +25,7 @@ import py.com.sodep.mf.form.model.prototype.MFInput.Type;
 import py.com.sodep.mf.form.model.prototype.MFPhoto;
 import py.com.sodep.mf.form.model.prototype.MFPrototype;
 import py.com.sodep.mf.form.model.prototype.MFSelect;
-import py.com.sodep.captura.forms.R;
+import io.github.jokoframework.chake.R;
 import py.com.sodep.mobileforms.dataservices.documents.Document;
 import py.com.sodep.mobileforms.exceptions.LengthException;
 import py.com.sodep.mobileforms.exceptions.RequiredValueException;
@@ -57,7 +57,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Parcelable;
 import android.provider.MediaStore;
-import android.support.v4.content.FileProvider;
+import androidx.core.content.FileProvider;
 import android.text.InputType;
 import android.text.format.DateFormat;
 import android.text.method.DigitsKeyListener;
@@ -80,6 +80,7 @@ import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 public class UIRenderer implements OnClickListener, OnItemSelectedListener {
 
@@ -758,8 +759,9 @@ public class UIRenderer implements OnClickListener, OnItemSelectedListener {
 	}
 
 	private void documentNotSavedMessage(Exception e) {
-		//TODO Report Exception in Crashlytics
 		Toast.makeText(activity, R.string.save_data_failed, Toast.LENGTH_LONG).show();
+		FirebaseCrashlytics crashlytics = FirebaseCrashlytics.getInstance();
+		crashlytics.recordException(e);
 	}
 
 	@Override
@@ -824,6 +826,7 @@ public class UIRenderer implements OnClickListener, OnItemSelectedListener {
 		} catch (ValidationException e) {
 			// Nothing to do, the error messages are shown in
 			// parseCurrentPageData
+			Log.e(LOG_TAG, e.getMessage(), e);
 		}
 	}
 
@@ -1199,6 +1202,12 @@ public class UIRenderer implements OnClickListener, OnItemSelectedListener {
 
 	private void requiredControl(View e, MFElement element, String value) throws RequiredValueException {
 		final String CHECKBOX_VALUE_FLASE = "false";
+		if (value == null) {
+			//No dejaba guardar, fallando silenciosamente si una foto no obligatoria
+			// no se seleccionaba
+			value = "";
+			Log.w(LOG_TAG, String.format("Valor null %s", element));
+		}
 
 		if (element.isRequired() && value.isEmpty()) {
 			Toast.makeText(activity, activity.getString(R.string.is_required, element.getProto().getLabel()),

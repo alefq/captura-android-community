@@ -1,12 +1,12 @@
 package py.com.sodep.mobileforms.ui;
 
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 
 
-import py.com.sodep.captura.forms.R;
+import io.github.jokoframework.chake.R;
 import py.com.sodep.mf.exchange.objects.metadata.Form;
 import py.com.sodep.mobileforms.dataservices.DocumentsDataSource;
 import py.com.sodep.mobileforms.dataservices.FormsDAO;

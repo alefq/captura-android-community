@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import py.com.sodep.captura.forms.R;
+import io.github.jokoframework.chake.R;
 
 public class SplashActivity extends Activity {
 

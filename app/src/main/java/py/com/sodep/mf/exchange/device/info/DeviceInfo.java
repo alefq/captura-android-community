@@ -5,7 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.provider.Settings.Secure;
-import android.support.v4.app.ActivityCompat;
+import androidx.core.app.ActivityCompat;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
@@ -58,23 +58,6 @@ public class DeviceInfo {
         return android.os.Build.VERSION.RELEASE;
     }
 
-    public String getPhoneNumber() {
-        if (ActivityCompat.checkSelfPermission(getContext(),
-                Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED
-                && ActivityCompat.checkSelfPermission(getContext(),
-                Manifest.permission.READ_PHONE_NUMBERS) != PackageManager.PERMISSION_GRANTED
-                && ActivityCompat.checkSelfPermission(getContext(),
-                Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-        }
-        TelephonyManager mTelephonyMgr = (TelephonyManager)
-                context.getSystemService(Context.TELEPHONY_SERVICE);
-        if (mTelephonyMgr != null) {
-            return mTelephonyMgr.getLine1Number();
-        } else {
-            return "";
-        }
-    }
-
     public MFDeviceInfo getMFDeviceInfo() {
         if (mfDeviceInfo == null) {
             mfDeviceInfo = new MFDeviceInfo();
@@ -82,7 +65,6 @@ public class DeviceInfo {
             mfDeviceInfo.setBrand(getBrand());
             mfDeviceInfo.setIdentifier(getUniqueIdentifier());
             mfDeviceInfo.setModel(getModel());
-            mfDeviceInfo.setPhoneNumber(getPhoneNumber());
             mfDeviceInfo.setVersionNumber(Integer.toString(getVersionNumber()));
             mfDeviceInfo.setManufacturer(getManufacturer());
             mfDeviceInfo.setProduct(getProduct());
@@ -107,7 +89,7 @@ public class DeviceInfo {
                 // to handle the case where the user grants the permission. See the documentation
                 // for ActivityCompat#requestPermissions for more details.
                 try {
-                    id = telephonyManager.getDeviceId();
+                    id = Secure.getString(context.getContentResolver(), Secure.ANDROID_ID);
                 } catch (SecurityException e) {
                     Log.e("getUniqueIdentifier", e.getMessage(), e);
                 }

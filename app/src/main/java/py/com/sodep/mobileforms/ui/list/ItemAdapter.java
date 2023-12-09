@@ -3,7 +3,7 @@ package py.com.sodep.mobileforms.ui.list;
 import java.util.List;
 
 import py.com.sodep.mf.exchange.objects.metadata.DescribableObject;
-import py.com.sodep.captura.forms.R;
+import io.github.jokoframework.chake.R;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;

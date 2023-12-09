@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import io.github.jokoframework.chake.MFApplication;
 import py.com.sodep.mf.exchange.MFDataHelper;
 import py.com.sodep.mf.exchange.MFDataSetDefinition;
 import py.com.sodep.mf.exchange.MFField;
@@ -26,7 +27,7 @@ import py.com.sodep.mf.exchange.TXInfo.OPERATION;
 import py.com.sodep.mf.exchange.objects.lookup.MFDMLTransport;
 import py.com.sodep.mf.exchange.objects.metadata.Form;
 import py.com.sodep.mf.form.model.element.filter.MFFilter;
-import py.com.sodep.mobileforms.application.MFApplication;
+
 import py.com.sodep.mobileforms.dataservices.lookup.LookupDataSource;
 import py.com.sodep.mobileforms.ui.rendering.objects.LookupData;
 

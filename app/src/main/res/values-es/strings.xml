@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Captura</string>
+    <string name="app_name">Chake</string>
     <string name="FormServerURI_title">URL</string>
     <string name="FormServerURI_summary">URL del servidor</string>
     <string name="form_title">Formularios</string>

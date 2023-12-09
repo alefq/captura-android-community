@@ -1,7 +1,7 @@
 package py.com.sodep.mobileforms.ui.rendering;
 
 import py.com.sodep.mf.form.model.element.MFElement;
-import py.com.sodep.captura.forms.R;
+import io.github.jokoframework.chake.R;
 import py.com.sodep.mobileforms.location.MFLocationManager;
 import android.annotation.SuppressLint;
 import android.content.Context;

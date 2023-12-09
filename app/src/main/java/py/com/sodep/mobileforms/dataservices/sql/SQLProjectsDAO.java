@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import py.com.sodep.mf.exchange.objects.metadata.Project;
-import py.com.sodep.mobileforms.application.MFApplication;
+import io.github.jokoframework.chake.MFApplication;
 import py.com.sodep.mobileforms.dataservices.ProjectsDAO;
 import android.content.ContentValues;
 import android.database.Cursor;

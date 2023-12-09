@@ -19,4 +19,5 @@
     <color name="mf_form_button_pressed_background">#FFCC34</color>
     <color name="mf_form_button_released_background0">#2FB2C6</color>
     <color name="mf_form_button_released_background1">#59BEDC</color>
+    <color name="eula_title_color">#449D44</color>
 </resources>

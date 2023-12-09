@@ -1,4 +1,4 @@
-package py.com.sodep.mobileforms.application;
+package io.github.jokoframework.chake;
 
 
 import py.com.sodep.mf.exchange.LoggerFactory;

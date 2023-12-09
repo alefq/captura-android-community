@@ -7,9 +7,10 @@ import java.util.List;
 import py.com.sodep.mf.exchange.exceptions.AuthenticationException;
 import py.com.sodep.mf.exchange.exceptions.AuthenticationException.FailCause;
 import py.com.sodep.mf.exchange.exceptions.HttpResponseException;
+import py.com.sodep.mf.exchange.exceptions.SodepException;
 import py.com.sodep.mf.exchange.net.ServerConnection;
 import py.com.sodep.mf.exchange.objects.metadata.Application;
-import py.com.sodep.captura.forms.R;
+import io.github.jokoframework.chake.R;
 import py.com.sodep.mobileforms.dataservices.ApplicationsDAO;
 import py.com.sodep.mobileforms.dataservices.sql.SQLApplicationsDAO;
 import py.com.sodep.mobileforms.net.sync.MetadataSynchronizationHelpers;
@@ -21,7 +22,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import py.com.sodep.ui.common.Eula;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -31,6 +33,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 
 public class AppListActivity extends AppCompatActivity {
@@ -440,6 +443,7 @@ public class AppListActivity extends AppCompatActivity {
     }
 
     private Dialog verificationFailedDialog(VerificationResponse response) {
+        FirebaseCrashlytics crashlytics = FirebaseCrashlytics.getInstance();
         boolean tryAgain = false;
         String message = getString(R.string.verification_failed);
 
@@ -455,28 +459,28 @@ public class AppListActivity extends AppCompatActivity {
                     case NO_COOKIE:
                         tryAgain = true;
                         message = getString(R.string.sync_failed_session_error_try_again);
-                        ////Crashlytics.logException(exception);
+                        crashlytics.recordException(exception);
                         break;
                     case INVALID_SERVER_RESPONSE:
                         tryAgain = true;
                         message = getString(R.string.sync_failed_http_error_try_again);
-                        ////Crashlytics.logException(exception);
+                        crashlytics.recordException(exception);
                         break;
                 }
 
                 break;
             case IO_EXCEPTION:
                 message = getString(R.string.connection_failed);
-                //Crashlytics.logException(new Exception(message));
+                crashlytics.recordException(new SodepException(message));
                 break;
             case SERVER_UNREACHABLE:
                 tryAgain = true;
                 message = getString(R.string.server_unreachable_try_again);
-                //Crashlytics.logException(new Exception(message));
+                crashlytics.recordException(new SodepException(message));
                 break;
             case RESPONSE_CODE_NOT_200:
                 message = ActivityUtils.getMessage(this, (HttpResponseException) response.exception);
-                //Crashlytics.logException(new Exception(message));
+                crashlytics.recordException(new SodepException(message));
                 break;
             case SUCCESS:
                 throw new RuntimeException("The verification was successful, #verificationFailedDialog shouldn't be called");
@@ -511,6 +515,7 @@ public class AppListActivity extends AppCompatActivity {
     }
 
     private Dialog downloadAppListFailedDialog(DownloadAppListResult response) {
+        FirebaseCrashlytics crashlytics = FirebaseCrashlytics.getInstance();
         boolean tryAgain = false;
         String message = getString(R.string.sync_failed);
 
@@ -526,19 +531,19 @@ public class AppListActivity extends AppCompatActivity {
                     case NO_COOKIE:
                         tryAgain = true;
                         message = getString(R.string.sync_failed_session_error_try_again);
-                        ////Crashlytics.logException(exception);
+                        crashlytics.recordException(exception);
                         break;
                     case INVALID_SERVER_RESPONSE:
                         tryAgain = true;
                         message = getString(R.string.sync_failed_http_error_try_again);
-                        ////Crashlytics.logException(exception);
+                        crashlytics.recordException(exception);
                         break;
                 }
 
                 break;
             case IO_EXCEPTION:
                 message = getString(R.string.connection_failed);
-                //Crashlytics.logException(new Exception(message));
+                crashlytics.recordException(new SodepException(message));
                 break;
             case SERVER_UNREACHABLE:
                 tryAgain = true;
@@ -549,7 +554,7 @@ public class AppListActivity extends AppCompatActivity {
             case UNEXPECTED_SERVER_RESPONSE:
                 HttpResponseException ex = (HttpResponseException) response.exception;
                 message = getString(R.string.server_response_not_200, ex.getResponseCode(), ex.getURL());
-                //Crashlytics.logException(new Exception(message));
+                crashlytics.recordException(new SodepException(message));
                 break;
             case APPLICATIONS_LIST_EMPTY:
                 tryAgain = false;

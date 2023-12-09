@@ -18,7 +18,7 @@
             android:layout_marginTop="60dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:src="@drawable/captura_logo" />
+            android:src="@drawable/chake_logo" />
 
         <RelativeLayout
             android:id="@+id/welcome01_layout"

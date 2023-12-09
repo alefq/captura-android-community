@@ -7,8 +7,8 @@ import static py.com.sodep.mobileforms.dataservices.sql.SodepSQLiteOpenHelper.PR
 import java.util.ArrayList;
 import java.util.List;
 
+import io.github.jokoframework.chake.MFApplication;
 import py.com.sodep.mf.exchange.objects.metadata.Form;
-import py.com.sodep.mobileforms.application.MFApplication;
 import py.com.sodep.mobileforms.dataservices.FormsDAO;
 import android.content.ContentValues;
 import android.database.Cursor;

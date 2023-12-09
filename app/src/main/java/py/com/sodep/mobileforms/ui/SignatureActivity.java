@@ -11,7 +11,7 @@ import android.widget.Button;
 import java.io.File;
 import java.io.FileOutputStream;
 
-import py.com.sodep.captura.forms.R;
+import io.github.jokoframework.chake.R;
 import py.com.sodep.mobileforms.settings.AppSettings;
 
 /**

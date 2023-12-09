@@ -3,7 +3,7 @@
     <string name="section_format">Hello World from section: %1$d</string>
 
 
-    <string name="app_name">Captura</string>
+    <string name="app_name">Chake</string>
     <string name="FormServerURI_title">URL</string>
     <string name="FormServerURI_summary">Server\'s URL</string>
     <string name="form_title">Forms</string>
@@ -206,4 +206,14 @@
     <string name="required_checkbox_label">"%s*"</string>
     <string name="incorrect_email_address_format">Incorrect e-mail format</string>
     <string name="email_address_format_hint">user@domain.com</string>
+    <string name="eula_body" translatable="false">"Tomamos muy en serio la privacidad de nuestros clientes. Con absoluta reserva se regula la forma en que manejaremos los datos que nos proporciones y aquellos que, con fines estadísticos, recabemos cuando ingreses y utilices nuestros sitios. Captura es un producto administrado, hospedado y mantenido por Sodep, S.A. de Asunción, Paraguay.  “Sodep S.A.” se compromete a no comercializar, transferir, distribuir, publicar o difundir a terceros ajenos a “Sodep S.A.”, sin la autorización expresa y por escrito del cliente, los datos capturados mediante los formularios . Tus datos son tuyos. La única forma en que nos veríamos obligados a proporcionar información es mediante la orden de una autoridad judicial competente.  Captura utiliza datacenters que cuentan con dos de las certificaciones más altas en cuanto a seguridad y protección de datos : HIPAA y PCI DSS."</string>
+    <string name="eula_accept" translatable="false">Entiendo y Acepto las condiciones anteriormente detalladas.</string>
+    <string name="eula_refuse" translatable="false">No acepto las condiciones de uso.</string>
+    <string name="eula_warning_title" translatable="false">Condiciones de Uso</string>
+    <string name="eula_warning_body" translatable="false">Ud. no aceptó aún los términos de uso de la aplicación. Por favor lea hasta el final y marque la casilla de aceptación si está de acuerdo con las condiciones.</string>
+    <string name="standard_back_button" translatable="false">Volver</string>
+    <string name="security_dialog_title" translatable="false">Protección de Datos</string>
+    <string name="security_dialog_body" translatable="false">La aplicación almacenará sus datos dentro del dispositivo, recuerde SIEMPRE utilizar alguna medida de seguridad para bloquear su dispositivo móvil (PIN, Huella dactilar, contraseña o patrón) en caso de robo o extravío.</string>
+    <string name="eula_activity_title" translatable="false">Aviso Legal y Limitación de la Responsabilidad</string>
+    <string name="continue_button" translatable="false">Continuar</string>
 </resources>

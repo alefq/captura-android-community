@@ -1,0 +1,88 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:padding="12dp"
+        android:text="@string/eula_activity_title"
+        android:background="@color/material_on_primary_disabled"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textAlignment="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:layout_below="@+id/textView13"
+        android:padding="5dp">
+
+        <!--<TextView
+            android:id="@+id/textView14"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@android:color/background_light"
+            android:text="@string/eula_body"
+            android:textAppearance="?android:attr/textAppearanceMedium" />-->
+
+        <WebView
+            android:id="@+id/webviewEula"
+            android:layout_width="fill_parent"
+            android:layout_height="345dp"
+            android:layout_weight="1" />
+
+        <CheckBox
+            android:id="@+id/checkBoxAcceptEula"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="@string/eula_accept" />
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                android:id="@+id/button_layout">
+
+            <Button
+                    android:id="@+id/eula_refuse_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="@string/prompt_cancel"
+                    android:textColor="#FFFFFF"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:layout_margin="10dp"
+                    android:textSize="18sp"                />
+
+            <Button
+                    android:id="@+id/eula_accept_btn"
+                    style="@style/mf_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="@string/prompt_accept"
+                    android:textColor="#FFFFFF"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:layout_margin="10dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

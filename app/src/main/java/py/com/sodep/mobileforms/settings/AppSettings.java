@@ -20,8 +20,8 @@ public class AppSettings {
 
 	private static String PREF_KEY_LOGGED_IN = "loggedIn";
 
-	public static final String DEFAULT_FORM_SERVER_URI = "https://captura-forms.com/mf";
-	public static final int DEFAULT_PORT = 443;
+	public static final String DEFAULT_FORM_SERVER_URI = "http://dev.sodep.com.py:8080/mf";
+	public static final int DEFAULT_PORT = 8080;
 	public static final String DEFAULT_CONTEXT = "mf";
 	private static final String DEFAULT_LANGUAGE = "en";
 	private final static int ANDROID_PIE_9 = 28;
