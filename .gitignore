@@ -11,6 +11,7 @@ app/release/output.json
 captures/
 app/fabric.properties
 app/google-services.json
+app/src/debug/google-services.json
 gradle
 gradlew
 gradlew.bat
