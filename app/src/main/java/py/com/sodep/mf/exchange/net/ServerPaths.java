@@ -21,6 +21,7 @@ class ServerPaths {
     private static final String DEVICE_VERIFICATION = "/api/authentication/verification";
 
     private static final String LOGIN = "/api/authentication/login";
+    private static final String ACTIVATION = "/api/authentication/activation";
 
     private static final String LOOKUP_DATA = "/api/lookupTable/lookupTableDataFast";
 
