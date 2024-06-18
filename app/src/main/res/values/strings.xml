@@ -193,7 +193,7 @@
     <string name="document_instance_title">Saved Document</string>
     <string name="grant_permission" translatable="false">Conceder</string>
     <string name="permissions_dialog_title" translatable="false">Conceder Permisos</string>
-    <string name="permissions_dialog_text" translatable="false">La aplicación de Captura requiere los permisos
+    <string name="permissions_dialog_text" translatable="false">La aplicación Chake requiere los permisos
         de Gestión de Llamadas y Ubicación del teléfono para mejorar la funcionalidad de la app.</string>
     <string name="permissions_camera_text" translatable="false">La aplicación de Captura requiere los permisos
         de acceder a la cámara y los archivos del dispositivo para poder utilizar
@@ -219,4 +219,6 @@
     <string name="activate_account_button" translatable="false">Siguiente</string>
     <string name="emailsending_title" translatable="false">Activar cuenta</string>
     <string name="emailsending_message" translatable="false">Enviando correo&#8230;</string>
+    <string name="app_version" translatable="false">0.0.1</string>
+    <string name="verificando_activacion" translatable="false">Verificando activación...</string>
 </resources>

@@ -36,6 +36,9 @@ import py.com.sodep.mf.exchange.LoggerFactory;
 import py.com.sodep.mf.exchange.MFLogger;
 import py.com.sodep.mf.exchange.MFLoookupTableDefinition;
 import py.com.sodep.mf.exchange.TXInfo;
+import py.com.sodep.mf.exchange.activation.ActivationRequest;
+import py.com.sodep.mf.exchange.activation.ActivationResponse;
+import py.com.sodep.mf.exchange.activation.ActivationStatusResponse;
 import py.com.sodep.mf.exchange.device.info.DeviceInfo;
 import py.com.sodep.mf.exchange.exceptions.AuthenticationException;
 import py.com.sodep.mf.exchange.exceptions.AuthenticationException.FailCause;
@@ -304,6 +307,63 @@ public class ServerConnection {
 		}
 	}
 
+	public boolean getActivationStatus(Long appId) throws IOException, HttpResponseException {
+		String path = ServerPaths.getActivationStatus();
+		HttpURLConnection connection = openConnection(path, POST);
+		connection.setRequestProperty("Content-Type", JSON_CONTENT_TYPE);
+
+		MFDevice device = getMFDevice(appId);
+		if (device.getDeviceInfo().getIdentifier() == null) {
+			// if we couldn't get an identifier, then it is better to stop
+			throw new RuntimeException("Unsupported device. Couldn't detect the identifier of this device.");
+		}
+
+		OutputStream outputStream = connection.getOutputStream();
+		try {
+			objectMapper.writeValue(outputStream, device);
+			checkResponseCode(connection);
+
+			InputStream in = connection.getInputStream();
+			try {
+				ActivationStatusResponse response = objectMapper.readValue(in, ActivationStatusResponse.class);
+				return response.isActive();
+			} finally {
+				close(in);
+			}
+		} finally {
+			close(outputStream);
+		}
+	}
+
+	public boolean requestActivateDevice(Long appId, String email) throws IOException, HttpResponseException {
+		String path = ServerPaths.getAccountActivate();
+		HttpURLConnection connection = openConnection(path, POST);
+		connection.setRequestProperty("Content-Type", JSON_CONTENT_TYPE);
+
+		MFDevice device = getMFDevice(appId);
+		if (device.getDeviceInfo().getIdentifier() == null) {
+			// if we couldn't get an identifier, then it is better to stop
+			throw new RuntimeException("Unsupported device. Couldn't detect the identifier of this device.");
+		}
+
+		OutputStream outputStream = connection.getOutputStream();
+		try {
+			ActivationRequest request = new ActivationRequest(device, email);
+			objectMapper.writeValue(outputStream, request);
+			checkResponseCode(connection);
+
+			InputStream in = connection.getInputStream();
+			try {
+				ActivationResponse response = objectMapper.readValue(in, ActivationResponse.class);
+				return response.isSentEmail();
+			} finally {
+				close(in);
+			}
+		} finally {
+			close(outputStream);
+		}
+	}
+
 	private void close(Closeable closeable) {
 		try {
 			if (closeable != null) {
@@ -561,6 +621,19 @@ public class ServerConnection {
 	}
 
 	public static ServerConnection builder(Context context, String[] params) {
+		ConnectionParameters connectionParameters = getConnectionParameters(context, params);
+		if (connectionParameters != null) {
+			return getOrInitServerConnection(context, connectionParameters);
+		}
+		throw new NoConnectionInfoException("Null or invalid connection parameters");
+	}
+
+	public static ServerConnection defaultBuilder(Context context) {
+		String[] params = new String[3];
+		params[0] = "chake@feltesq.com";
+		params[1] = "123456";
+		params[2] = AppSettings.DEFAULT_FORM_SERVER_URI;
+
 		ConnectionParameters connectionParameters = getConnectionParameters(context, params);
 		if (connectionParameters != null) {
 			return getOrInitServerConnection(context, connectionParameters);

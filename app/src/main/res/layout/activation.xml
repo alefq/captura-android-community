@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/mf_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:foregroundGravity="center_vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/captura_logo"
+            android:src="@drawable/chake_logo" />
+
+        <LinearLayout
+            android:id="@+id/activation_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="30dp"
+            android:visibility="gone"
+            android:layout_marginBottom="30dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/activate_account_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/activate_account_title"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/common_google_signin_btn_text_light_focused"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/activate_account_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/activate_account_message"
+                android:textSize="15sp"
+                android:textStyle="normal"
+                android:textColor="@color/mf_actionbar_background_color1"
+                android:gravity="center" />
+
+            <EditText
+                android:id="@+id/welcome_01_mailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="30dp"
+                android:ems="10"
+                android:hint="@string/welcome_01_hint_mail"
+                android:inputType="textEmailAddress"
+                android:textColorHint="@color/mf_hint_foreground_color"
+                android:textSize="18sp"
+                android:autofillHints="">
+                <requestFocus />
+            </EditText>
+
+            <Button
+                android:id="@+id/welcome_01_NextButton"
+                style="@style/mf_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:onClick="next"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="@string/activate_account_button"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/versionTextView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/app_version"
+                android:layout_gravity="end"
+                android:layout_marginEnd="20dp"
+                android:textAppearance="@style/mf_login.version_number" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/activation_status_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="30dp"
+            android:visibility="gone"
+            android:layout_marginBottom="30dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/verify_account_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:paddingBottom="50dp"
+                android:text="@string/verificando_activacion"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/common_google_signin_btn_text_light_focused"
+                android:gravity="center" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:visibility="visible"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

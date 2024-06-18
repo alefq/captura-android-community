@@ -586,7 +586,7 @@ public class AppListActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int id) {
                 dialog.dismiss();
                 AppSettings.setLoggedIn(currentActivity, false);
-                Intent i = new Intent(currentActivity, LoginActivity.class);
+                Intent i = new Intent(currentActivity, ActivationActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 currentActivity.startActivity(i);
             }

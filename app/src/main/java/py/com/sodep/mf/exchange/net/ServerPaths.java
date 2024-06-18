@@ -21,7 +21,8 @@ class ServerPaths {
     private static final String DEVICE_VERIFICATION = "/api/authentication/verification";
 
     private static final String LOGIN = "/api/authentication/login";
-    private static final String ACTIVATION = "/api/authentication/activation";
+    private static final String ACTIVATION_STATUS = "/api/authentication/activation/status";
+    private static final String ACCOUNT_ACTIVATE = "/api/authentication/activation/device";
 
     private static final String LOOKUP_DATA = "/api/lookupTable/lookupTableDataFast";
 
@@ -60,6 +61,12 @@ class ServerPaths {
 
     static String login() {
         return LOGIN;
+    }
+    static String getAccountActivate() {
+        return ACCOUNT_ACTIVATE;
+    }
+    static String getActivationStatus() {
+        return ACTIVATION_STATUS;
     }
 
     static String lookupData() {

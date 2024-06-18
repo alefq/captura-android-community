@@ -19,6 +19,7 @@ public class AppSettings {
 	private static String PREF_LAST_INSTALLED_VERSION_CODE = "LastInstalledVersionCode";
 
 	private static String PREF_KEY_LOGGED_IN = "loggedIn";
+	private static String PREF_KEY_ACCOUNT_ACTIVATED = "accountActivated";
 
 	public static final String DEFAULT_FORM_SERVER_URI = "http://dev.sodep.com.py:8080/mf";
 	public static final int DEFAULT_PORT = 8080;
@@ -131,6 +132,18 @@ public class AppSettings {
 		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
 		Editor editor = preferences.edit();
 		editor.putBoolean(PREF_KEY_LOGGED_IN, value);
+		editor.apply();
+	}
+
+	public static boolean isAccountActivated(Context context) {
+		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+		return preferences.getBoolean(PREF_KEY_ACCOUNT_ACTIVATED, false);
+	}
+
+	public static void setAccountActivated(Context context, boolean value) {
+		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+		Editor editor = preferences.edit();
+		editor.putBoolean(PREF_KEY_ACCOUNT_ACTIVATED, value);
 		editor.apply();
 	}
 

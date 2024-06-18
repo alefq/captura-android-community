@@ -78,7 +78,6 @@ import py.com.sodep.mobileforms.ui.list.DocumentsAdapter;
 import py.com.sodep.mobileforms.ui.list.Item;
 import py.com.sodep.mobileforms.ui.list.ItemAdapter;
 import py.com.sodep.mobileforms.ui.list.SectionedAdapter;
-import py.com.sodep.ui.common.Eula;
 
 import static py.com.sodep.mobileforms.application.BroadcastActions.ACTION_EXIT;
 import static py.com.sodep.mobileforms.application.BroadcastActions.ACTION_SYNC_FAILED;
@@ -308,9 +307,9 @@ public class MainActivity extends AppCompatActivity implements TabListener {
 	}
 
 	private void init() {
-		boolean loggedIn = AppSettings.isLoggedIn(this);
+		boolean accountActivated = AppSettings.isAccountActivated(this);
 
-		if (!AppSettings.isFromOldApp(this) && loggedIn) {
+		if (!AppSettings.isFromOldApp(this) && accountActivated) {
 			Long appId = AppSettings.getAppId(this);
 			if (appId == null || appId == 0L) {
 				initAppList();
@@ -318,10 +317,11 @@ public class MainActivity extends AppCompatActivity implements TabListener {
 				initMain();
 			}
 		} else {
-			// If not logged in show login screen
-			initLogin();
+			// If not activated in show activation screen
+			initActivation();
 		}
 	}
+
 
 	private void initAppList() {
 		Intent i = new Intent(this, AppListActivity.class);
@@ -338,11 +338,17 @@ public class MainActivity extends AppCompatActivity implements TabListener {
 		finish();
 	}
 
+	private void initActivation() {
+		Intent i = new Intent(this, SplashActivity.class);
+		startActivity(i);
+		finish();
+	}
+
 	private void initMain() {
 		Application app = getCurrentApp();
 		if (app == null) {
-			AppSettings.setLoggedIn(this, false);
-			initLogin();
+			AppSettings.setAccountActivated(this, false);
+			initActivation();
 			return;
 		}
 		getSupportActionBar().setTitle(app.getLabel());

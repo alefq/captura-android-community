@@ -20,7 +20,7 @@ public class SplashActivity extends Activity {
 
 			@Override
 			public void run() {
-				Intent i = new Intent(SplashActivity.this, LoginActivity.class);
+				Intent i = new Intent(SplashActivity.this, ActivationActivity.class);
 				startActivity(i);
 				overridePendingTransition(R.anim.anim_in, R.anim.anim_out);
 				finish();
