@@ -221,4 +221,8 @@
     <string name="emailsending_message" translatable="false">Enviando correo&#8230;</string>
     <string name="app_version" translatable="false">0.0.1</string>
     <string name="verificando_activacion" translatable="false">Verificando activación...</string>
+    <string name="emailsent_title" translatable="false">Correo enviado</string>
+    <string name="emailsent_message" translatable="false">Te hemos enviado un correo electrónico para activar tu cuenta. Por favor, busca el mensaje en tu bandeja de entrada y sigue el enlace proporcionado. Este proceso es muy rápido y no te tomará mucho tiempo. No olvides revisar tu carpeta de spam o correo no deseado en caso de que no encuentres el correo en tu bandeja de entrada principal.</string>
+
+
 </resources>

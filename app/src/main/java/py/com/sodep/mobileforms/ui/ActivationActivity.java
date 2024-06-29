@@ -82,6 +82,14 @@ public class ActivationActivity extends Activity {
             }
         });
 
+        Button acceptButton = findViewById(R.id.accept_button);
+        acceptButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         checkActivationStatus();
     }
 
@@ -108,6 +116,12 @@ public class ActivationActivity extends Activity {
             doLogin();
         }
 
+    }
+
+    private void showEmailSentLayout() {
+        boolean accountActivated = AppSettings.isAccountActivated(this);
+        findViewById(R.id.activation_layout).setVisibility(View.GONE);
+        findViewById(R.id.activation_email_sent_layout).setVisibility(View.VISIBLE);
     }
 
     private class CheckActivationTask extends AsyncTask<Void, Void, Boolean> {
@@ -161,6 +175,7 @@ public class ActivationActivity extends Activity {
         protected void onPostExecute(Boolean activationSent) {
             if (activationSent) {
                 Toast.makeText(ActivationActivity.this, "Correo electrónico de activación enviado", Toast.LENGTH_LONG).show();
+                showEmailSentLayout();
             } else {
                 Toast.makeText(ActivationActivity.this, "No se pudo enviar el correo electrónico de activación", Toast.LENGTH_LONG).show();
             }

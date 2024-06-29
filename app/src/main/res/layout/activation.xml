@@ -132,6 +132,58 @@
 
         </LinearLayout>
 
+
+        <LinearLayout
+            android:id="@+id/activation_email_sent_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="30dp"
+            android:visibility="gone"
+            android:layout_marginBottom="30dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/sent_email_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/emailsent_title"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/common_google_signin_btn_text_light_focused"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/sent_email_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/emailsent_message"
+                android:textSize="15sp"
+                android:textStyle="normal"
+                android:textColor="@color/mf_actionbar_background_color1"
+                android:gravity="center" />
+
+            <Button
+                android:id="@+id/accept_button"
+                style="@style/mf_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:onClick="next"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="@string/prompt_accept"
+                android:textSize="16sp" />
+        </LinearLayout>
+
     </LinearLayout>
 
 </ScrollView>

@@ -256,6 +256,9 @@ public class AppListActivity extends AppCompatActivity {
     private void launchApplication(Application application) {
         VerificationAndSelectionTask task = new VerificationAndSelectionTask();
         task.execute(application);
+        /*AppListActivity activity = currentActivity;
+        activity.setSelectedApplication(application);
+        activity.startMainActivity();*/
     }
 
     private static class VerificationResponse implements Serializable {
