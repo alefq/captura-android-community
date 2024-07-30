@@ -15,3 +15,4 @@ app/src/debug/google-services.json
 gradle
 gradlew
 gradlew.bat
+chake-config.properties

@@ -32,6 +32,7 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
+import io.github.jokoframework.chake.BuildConfig;
 import py.com.sodep.mf.exchange.LoggerFactory;
 import py.com.sodep.mf.exchange.MFLogger;
 import py.com.sodep.mf.exchange.MFLoookupTableDefinition;
@@ -630,8 +631,8 @@ public class ServerConnection {
 
 	public static ServerConnection defaultBuilder(Context context) {
 		String[] params = new String[3];
-		params[0] = "chake@feltesq.com";
-		params[1] = "123456";
+		params[0] = BuildConfig.CHAKE_USERNAME;
+		params[1] = BuildConfig.CHAKE_PASSWORD;
 		params[2] = AppSettings.DEFAULT_FORM_SERVER_URI;
 
 		ConnectionParameters connectionParameters = getConnectionParameters(context, params);

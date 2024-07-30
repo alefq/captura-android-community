@@ -15,16 +15,18 @@ android {
         versionName "1.0.$project.appVersion"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         ndk.abiFilters 'armeabi-v7a','arm64-v8a','x86','x86_64'
-        if (project.hasProperty('chake_username')) {
-            buildConfigField "String", "CHAKE_USERNAME", "\"${chake_username}\""
-        } else {
-            buildConfigField "String", "CHAKE_USERNAME", "\"\""
+        def properties = new Properties()
+        def configFile = rootProject.file("chake-config.properties")
+        if (configFile.exists()) {
+            configFile.withInputStream { stream ->
+                properties.load(stream)
+            }
         }
-        if (project.hasProperty('chake_password')) {
-            buildConfigField "String", "CHAKE_PASSWORD", "\"${chake_password}\""
-        } else {
-            buildConfigField "String", "CHAKE_PASSWORD", "\"\""
-        }
+
+        def chakeUsername = properties.getProperty('chake_username', "")
+        def chakePassword = properties.getProperty('chake_password', "")
+        buildConfigField "String", "CHAKE_USERNAME", "\"${chakeUsername}\""
+        buildConfigField "String", "CHAKE_PASSWORD", "\"${chakePassword}\""
     }
     buildTypes {
         release {

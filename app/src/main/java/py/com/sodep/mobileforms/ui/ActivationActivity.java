@@ -18,6 +18,7 @@ import android.content.Intent;
 import java.io.Serializable;
 import java.util.List;
 
+import io.github.jokoframework.chake.BuildConfig;
 import io.github.jokoframework.chake.R;
 import py.com.sodep.mf.exchange.exceptions.LoginException;
 import py.com.sodep.mf.exchange.net.ServerConnection;
@@ -190,8 +191,8 @@ public class ActivationActivity extends Activity {
     }
 
     private void doLogin() {
-        String user = "chake@feltesq.com";
-        String password = "123456";
+        String user = BuildConfig.CHAKE_USERNAME;
+        String password = BuildConfig.CHAKE_PASSWORD;
         String server = AppSettings.DEFAULT_FORM_SERVER_URI;
         new LoginTask().execute(user, password, server);
     }
