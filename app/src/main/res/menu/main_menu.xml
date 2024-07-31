@@ -11,6 +11,7 @@
     <item
         android:id="@+id/item_settings"
         android:title="@string/settings_title"
+        android:visible="false"
         mf:showAsAction="collapseActionView"/>
 
 </menu>

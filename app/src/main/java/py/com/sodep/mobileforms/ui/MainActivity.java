@@ -250,13 +250,14 @@ public class MainActivity extends AppCompatActivity implements TabListener {
 				&& supportActionBar.getNavigationMode() == ActionBar.NAVIGATION_MODE_TABS) {
 			MenuInflater inflater = getMenuInflater();
 			inflater.inflate(R.menu.main_menu, menu);
-			Tab selectedTab = supportActionBar.getSelectedTab();
+			//TODO: descomentar para habilitar opciones
+			/*Tab selectedTab = supportActionBar.getSelectedTab();
 			if (selectedTab != null && selectedTab.getPosition() == 2) {
 				menu.add(0, clearDocumentItemId, 0, R.string.clear_documents);
 			}
 			if (BuildConfig.DEBUG) {
 				menu.add(0, copyDBItemId, 0, "Copy SQLite file");
-			}
+			}*/
 			MenuItem syncItem = menu.getItem(0);
 
 			if (syncButtonEnabled) {

@@ -5,6 +5,7 @@
     <item
         android:id="@+id/save_as_draft"
         android:title="@string/save_draft"
+        android:visible="false"
         mf:showAsAction="never"/>
 
 </menu>
