@@ -116,13 +116,18 @@ public class AppListActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
         switch (item.getItemId()) {
             case R.id.item_settings:
-                Intent intent = new Intent(this, SettingsPreferenceActivity.class);
+                intent = new Intent(this, SettingsPreferenceActivity.class);
                 startActivity(intent);
                 break;
             case R.id.item_sync:
                 downloadApplicationList();
+                break;
+            case R.id.item_map:
+                intent = new Intent(this, WebViewActivity.class);
+                startActivity(intent);
                 break;
         }
         return false;

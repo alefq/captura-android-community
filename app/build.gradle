@@ -25,8 +25,12 @@ android {
 
         def chakeUsername = properties.getProperty('chake_username', "")
         def chakePassword = properties.getProperty('chake_password', "")
+        def chakeServerUrl = properties.getProperty('chake_server_url', "")
+        def chakeMapUrl = properties.getProperty('chake_map_url', "")
         buildConfigField "String", "CHAKE_USERNAME", "\"${chakeUsername}\""
         buildConfigField "String", "CHAKE_PASSWORD", "\"${chakePassword}\""
+        buildConfigField "String", "CHAKE_SERVER_URL", "\"${chakeServerUrl}\""
+        buildConfigField "String", "CHAKE_MAP_URL", "\"${chakeMapUrl}\""
     }
     buildTypes {
         release {

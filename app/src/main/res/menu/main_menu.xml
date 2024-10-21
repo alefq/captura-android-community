@@ -9,6 +9,12 @@
         mf:showAsAction="always"/>
 
     <item
+        android:id="@+id/item_map"
+        android:icon="@drawable/ic_action_map"
+        android:title="@string/show_on_map"
+        mf:showAsAction="always"/>
+
+    <item
         android:id="@+id/item_settings"
         android:title="@string/settings_title"
         android:visible="false"

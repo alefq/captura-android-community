@@ -84,6 +84,13 @@
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
+            android:name="py.com.sodep.mobileforms.ui.WebViewActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
             android:name="py.com.sodep.mobileforms.ui.AppListActivity"
             android:label="@string/app_name"
             android:launchMode="singleTask"

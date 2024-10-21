@@ -289,6 +289,9 @@ public class MainActivity extends AppCompatActivity implements TabListener {
 			Intent syncService = new Intent(this, SyncService.class);
 			startService(syncService);
 			break;
+		case R.id.item_map:
+			startActivity(new Intent(this, WebViewActivity.class));
+			break;
 		case clearDocumentItemId:
             removeAndShowDialog(DIALOG_CLEAR_DOCUMENTS, null);
 			break;

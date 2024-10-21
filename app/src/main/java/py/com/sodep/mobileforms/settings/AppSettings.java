@@ -1,5 +1,6 @@
 package py.com.sodep.mobileforms.settings;
 
+import io.github.jokoframework.chake.BuildConfig;
 import py.com.sodep.mobileforms.crypto.SimpleCrypto;
 import py.com.sodep.mobileforms.crypto.EncodeDecodeAES;
 
@@ -21,7 +22,9 @@ public class AppSettings {
 	private static String PREF_KEY_LOGGED_IN = "loggedIn";
 	private static String PREF_KEY_ACCOUNT_ACTIVATED = "accountActivated";
 
-	public static final String DEFAULT_FORM_SERVER_URI = "https://captura-uc.feltesq.com/mf";
+	public static final String DEFAULT_FORM_SERVER_URI = BuildConfig.CHAKE_SERVER_URL;
+
+	public static final String DEFAULT_MAP_URI = BuildConfig.CHAKE_MAP_URL;
 	public static final int DEFAULT_PORT = 8080;
 	public static final String DEFAULT_CONTEXT = "mf";
 	private static final String DEFAULT_LANGUAGE = "en";
