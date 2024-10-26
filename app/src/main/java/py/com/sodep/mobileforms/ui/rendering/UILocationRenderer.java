@@ -3,20 +3,27 @@ package py.com.sodep.mobileforms.ui.rendering;
 import py.com.sodep.mf.form.model.element.MFElement;
 import io.github.jokoframework.chake.R;
 import py.com.sodep.mobileforms.location.MFLocationManager;
+import py.com.sodep.mobileforms.ui.FormActivity;
+import py.com.sodep.mobileforms.util.PermissionsHelper;
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.Settings;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import androidx.appcompat.app.AlertDialog;
 
 class UILocationRenderer {
 
@@ -138,13 +145,25 @@ class UILocationRenderer {
 			@SuppressLint("HandlerLeak")
 			@Override
 			public void onClick(View v) {
-				resolvingTextView.setVisibility(View.VISIBLE);
-				coordinatesTextView.setText("");
-				coordinatesTextView.setVisibility(View.VISIBLE);
-				mgr.calculate();
-				stopButton.setVisibility(View.VISIBLE);
-				locationButton.setVisibility(View.GONE);
-				tickHandler.post(tickRunnable);
+				if(PermissionsHelper.hasPermissions(context, Manifest.permission.ACCESS_FINE_LOCATION)){
+					LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+					boolean isGpsEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+					if (isGpsEnabled) {
+						resolvingTextView.setVisibility(View.VISIBLE);
+						coordinatesTextView.setText("");
+						coordinatesTextView.setVisibility(View.VISIBLE);
+						mgr.calculate();
+						stopButton.setVisibility(View.VISIBLE);
+						locationButton.setVisibility(View.GONE);
+						tickHandler.post(tickRunnable);
+					} else {
+						showGPSRequiredDialog();
+					}
+				} else {
+					PermissionsHelper.checkAndAskForPermissions( (FormActivity) context,
+							R.string.permissions_location_text,
+							Manifest.permission.ACCESS_FINE_LOCATION);
+				}
 			}
 		});
 
@@ -160,6 +179,26 @@ class UILocationRenderer {
 			clearButton.setVisibility(View.VISIBLE);
 		}
 		return locationButton;
+	}
+
+	private void showGPSRequiredDialog() {
+		AlertDialog.Builder alertBuilder = new AlertDialog.Builder(context);
+		alertBuilder.setCancelable(true);
+		alertBuilder.setTitle(R.string.gps_required);
+		alertBuilder.setMessage(R.string.gps_disabled_message);
+		alertBuilder.setPositiveButton(R.string.open_settings, new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int id) {
+				Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+				context.startActivity(intent);
+			}
+		});
+		alertBuilder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int id) {
+				dialog.dismiss();
+			}
+		});
+
+		alertBuilder.create().show();
 	}
 
 	private TextView newLocationResolvingTextView() {

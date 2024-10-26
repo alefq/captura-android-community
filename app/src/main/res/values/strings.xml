@@ -97,8 +97,8 @@
     <string name="entries_synced">%d documents synced</string>
     <string name="one_entry_rejected">one document rejected</string>
     <string name="entries_rejected">%d documentos rejected</string>
-    <string name="change_app_confirmation">Are you sure you want to switch to another Captura App?</string>
-    <string name="change_app_summary">Change to another Captura App</string>
+    <string name="change_app_confirmation">Are you sure you want to switch to another Chake App?</string>
+    <string name="change_app_summary">Change to another Chake App</string>
     <string name="clear_documents">Clear synced documents</string>
     <string name="synchronizing_metadata">Synchronizing metadata</string>
     <string name="clear_documents_message">All synced documents will be deleted. Do you wish to continue?</string>
@@ -155,7 +155,7 @@
     <string name="logging_out_message">Logging out&#8230;</string>
     <string name="invalid_device">Invalid device</string>
     <string name="invalid_license">The application\'s license is invalid or has expired</string>
-    <string name="captura_logo">Captura Logo</string>
+    <string name="captura_logo">Chake Logo</string>
     <string name="invalid_certificate_title">Invalid certificate</string>
     <string name="invalid_certificate_message">The server\'s certificate is invalid, please contact your system administrator</string>
     <string name="select_source">Select Source</string>
@@ -191,38 +191,37 @@
     <string name="about">About</string>
     <string name="capture_signature">Sign</string>
     <string name="document_instance_title">Saved Document</string>
-    <string name="grant_permission" translatable="false">Conceder</string>
-    <string name="permissions_dialog_title" translatable="false">Conceder Permisos</string>
-    <string name="permissions_dialog_text" translatable="false">La aplicación Chake requiere los permisos
-        de Gestión de Llamadas y Ubicación del teléfono para mejorar la funcionalidad de la app.</string>
-    <string name="permissions_camera_text" translatable="false">La aplicación de Captura requiere los permisos
-        de acceder a la cámara y los archivos del dispositivo para poder utilizar
-        esta funcionalidad.</string>
-    <string name="prompt_accept" translatable="false">Aceptar</string>
-    <string name="prompt_cancel" translatable="false">Cancelar</string>
-    <string name="prompt_loading" translatable="false">Procesando...</string>
+    <string name="grant_permission">Grant</string>
+    <string name="permissions_dialog_title">Grant Permissions</string>
+    <string name="permissions_dialog_text">The Chake app requires Call Management and Location permissions to enhance the app\'s functionality.</string>
+    <string name="permissions_camera_text">The Chake app requires access to the camera and device files to use this functionality.</string>
+    <string name="prompt_accept">Accept</string>
+    <string name="prompt_cancel">Cancel</string>
+    <string name="prompt_loading">Processing&#8230;</string>
     <string name="required_checkbox_label">"%s*"</string>
-    <string name="incorrect_email_address_format">Incorrect e-mail format</string>
+    <string name="incorrect_email_address_format">Incorrect email format</string>
     <string name="email_address_format_hint">user@domain.com</string>
-    <string name="eula_body" translatable="false">"Tomamos muy en serio la privacidad de nuestros clientes. Con absoluta reserva se regula la forma en que manejaremos los datos que nos proporciones y aquellos que, con fines estadísticos, recabemos cuando ingreses y utilices nuestros sitios. Captura es un producto administrado, hospedado y mantenido por Sodep, S.A. de Asunción, Paraguay.  “Sodep S.A.” se compromete a no comercializar, transferir, distribuir, publicar o difundir a terceros ajenos a “Sodep S.A.”, sin la autorización expresa y por escrito del cliente, los datos capturados mediante los formularios . Tus datos son tuyos. La única forma en que nos veríamos obligados a proporcionar información es mediante la orden de una autoridad judicial competente.  Captura utiliza datacenters que cuentan con dos de las certificaciones más altas en cuanto a seguridad y protección de datos : HIPAA y PCI DSS."</string>
-    <string name="eula_accept" translatable="false">Entiendo y Acepto las condiciones anteriormente detalladas.</string>
-    <string name="eula_refuse" translatable="false">No acepto las condiciones de uso.</string>
-    <string name="eula_warning_title" translatable="false">Condiciones de Uso</string>
-    <string name="eula_warning_body" translatable="false">Ud. no aceptó aún los términos de uso de la aplicación. Por favor lea hasta el final y marque la casilla de aceptación si está de acuerdo con las condiciones.</string>
-    <string name="standard_back_button" translatable="false">Volver</string>
-    <string name="security_dialog_title" translatable="false">Protección de Datos</string>
-    <string name="security_dialog_body" translatable="false">La aplicación almacenará sus datos dentro del dispositivo, recuerde SIEMPRE utilizar alguna medida de seguridad para bloquear su dispositivo móvil (PIN, Huella dactilar, contraseña o patrón) en caso de robo o extravío.</string>
-    <string name="eula_activity_title" translatable="false">Aviso Legal y Limitación de la Responsabilidad</string>
-    <string name="continue_button" translatable="false">Continuar</string>
-    <string name="activate_account_title" translatable="false">Activar Cuenta</string>
-    <string name="activate_account_message" translatable="false">Para activar su cuenta, por favor ingrese su dirección de correo electrónico. Le enviaremos un enlace de activación a esa dirección. Simplemente haga clic en el enlace que recibirá en su correo para completar el proceso de activación.</string>
-    <string name="activate_account_button" translatable="false">Siguiente</string>
-    <string name="emailsending_title" translatable="false">Activar cuenta</string>
-    <string name="emailsending_message" translatable="false">Enviando correo&#8230;</string>
-    <string name="app_version" translatable="false">0.0.1</string>
-    <string name="verificando_activacion" translatable="false">Verificando activación...</string>
-    <string name="emailsent_title" translatable="false">Correo enviado</string>
-    <string name="emailsent_message" translatable="false">Te hemos enviado un correo electrónico para activar tu cuenta. Por favor, busca el mensaje en tu bandeja de entrada y sigue el enlace proporcionado. Este proceso es muy rápido y no te tomará mucho tiempo. No olvides revisar tu carpeta de spam o correo no deseado en caso de que no encuentres el correo en tu bandeja de entrada principal.</string>
-
-
+    <string name="eula_body">"We take our clients' privacy very seriously. We strictly regulate how we handle the data you provide us and the data we collect for statistical purposes when you access and use our sites. Chake is a product administered, hosted, and maintained by Sodep, S.A. of Asunción, Paraguay. 'Sodep S.A.' commits not to commercialize, transfer, distribute, publish, or disclose to third parties outside 'Sodep S.A.' without the express written authorization of the client, the data collected through forms. Your data is yours. The only way we would be forced to provide information is by the order of a competent judicial authority. Chake uses data centers that have two of the highest certifications in terms of data security and protection: HIPAA and PCI DSS."</string>
+    <string name="eula_accept">I Understand and Accept the Conditions Detailed Above.</string>
+    <string name="eula_refuse">I Do Not Accept the Terms of Use.</string>
+    <string name="eula_warning_title">Terms of Use</string>
+    <string name="eula_warning_body">You have not yet accepted the application\'s terms of use. Please read to the end and check the acceptance box if you agree with the terms.</string>
+    <string name="standard_back_button">Back</string>
+    <string name="security_dialog_title">Data Protection</string>
+    <string name="security_dialog_body">The app will store your data on the device. ALWAYS remember to use some security measure to lock your mobile device (PIN, Fingerprint, Password, or Pattern) in case of theft or loss.</string>
+    <string name="eula_activity_title">Legal Notice and Liability Limitation</string>
+    <string name="continue_button">Continue</string>
+    <string name="activate_account_title">Activate Account</string>
+    <string name="activate_account_message">To activate your account, please enter your email address. We will send an activation link to that address. Simply click the link you receive in your email to complete the activation process.</string>
+    <string name="activate_account_button">Next</string>
+    <string name="emailsending_title">Activate Account</string>
+    <string name="emailsending_message">Sending email&#8230;</string>
+    <string name="app_version">0.0.1</string>
+    <string name="verificando_activacion">Verifying activation&#8230;</string>
+    <string name="emailsent_title">Email Sent</string>
+    <string name="emailsent_message">We have sent you an email to activate your account. Please check your inbox and follow the provided link. This process is quick and won’t take much time. Don\'t forget to check your spam or junk folder if you don’t find the email in your main inbox.</string>
+    <string name="permissions_location_text">The Chake app requires phone location permission to use this functionality.</string>
+    <string name="gps_required">Activate location</string>
+    <string name="gps_disabled_message">Please enable GPS to register complaints accurately.</string>
+    <string name="open_settings">Open Settings</string>
 </resources>

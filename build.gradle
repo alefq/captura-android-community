@@ -27,7 +27,7 @@ allprojects {
         mavenCentral()
     }
     project.ext {
-        appVersion = 1
+        appVersion = 2
         debugMinify = false
         debugUseProguard = false
         jacksonCoreVersion = "2.9.10"
