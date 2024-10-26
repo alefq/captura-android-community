@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -430,6 +431,7 @@ public class UIRenderer implements OnClickListener, OnItemSelectedListener {
 		// document
 		copyCurrentPageDataToDocument();
 		List<LabelAndValue> options = model.listSelectOptions(element);
+		sortOptionsAlphabetically(options);
 		LabelAndValue chooseOption = new LabelAndValue(new LookupData(
 				activity.getString(R.string.select_choose_option), FIELD_TYPE.STRING), new LookupData("",
 				FIELD_TYPE.STRING));
@@ -452,6 +454,17 @@ public class UIRenderer implements OnClickListener, OnItemSelectedListener {
 		spinner.setOnItemSelectedListener(this);
 		widgets.addToPage(labelView, spinner);
 		widgets.elementViews.add(spinner);
+	}
+
+	private void sortOptionsAlphabetically(List<LabelAndValue> options) {
+		options.sort(new Comparator<LabelAndValue>() {
+            @Override
+            public int compare(LabelAndValue o1, LabelAndValue o2) {
+                String label1 = (String) o1.getLabel().getData();
+                String label2 = (String) o2.getLabel().getData();
+                return label1.compareTo(label2);
+            }
+        });
 	}
 
 	private void setAdapter(Spinner spinner, List<LabelAndValue> options) {
@@ -1422,7 +1435,7 @@ public class UIRenderer implements OnClickListener, OnItemSelectedListener {
 
 	private void setDynamicOptions(Spinner spinner, MFElement meta) {
 		List<LabelAndValue> options = model.listSelectOptions(meta);
-
+		sortOptionsAlphabetically(options);
         LabelAndValue chooseOption = new LabelAndValue(new LookupData(
                 activity.getString(R.string.select_choose_option), FIELD_TYPE.STRING), new LookupData("",
                 FIELD_TYPE.STRING));
