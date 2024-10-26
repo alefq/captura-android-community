@@ -438,7 +438,7 @@ public class MainActivity extends AppCompatActivity implements TabListener {
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-        int viewId = v.getId();
+        /*int viewId = v.getId();
         switch (viewId) {
             case R.id.listViewDocuments:
                 DocumentMetadata documentMetadata = (DocumentMetadata) documentsAdapter.getItem(((AdapterContextMenuInfo) menuInfo).position);
@@ -459,7 +459,7 @@ public class MainActivity extends AppCompatActivity implements TabListener {
                 break;
             default:
                 break;
-        }
+        }*/
 
     }
 

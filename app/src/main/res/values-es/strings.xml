@@ -92,9 +92,9 @@
     <string name="sync_started_ticker">Sincronización iniciada</string>
     <string name="server_error">Error del servidor</string>
     <string name="response_code">Código de respuesta</string>
-    <string name="one_entry_synced">un documento sincronizado</string>
+    <string name="one_entry_synced">Un documento sincronizado</string>
     <string name="entries_synced">%d documentos sincronizados</string>
-    <string name="one_entry_rejected">un documento rechazado</string>
+    <string name="one_entry_rejected">Un documento rechazado</string>
     <string name="entries_rejected">%d documentos rechazados</string>
     <string name="change_app_confirmation">¿Está seguro que desea cambiar de aplicación?</string>
     <string name="change_app_summary">Cambiar a otra aplicación de Chake</string>
