@@ -41,12 +41,12 @@
     <string name="tab_forms">Formularios</string>
     <string name="tab_documents">Documentos</string>
     <string name="select_your_app">Seleccione su aplicación</string>
-    <string name="sync_error">Error en Sincronización</string>
+    <string name="sync_error">Sincronización fallida</string>
     <string name="sync_failed_try_again">Lo sentimos, la sincronización ha fallado. ¿Intentar de nuevo?</string>
     <string name="sync_failed_authentication_error">Error de autenticación. Por favor, revise sus credenciales</string>
     <string name="sync_failed_bad_configuration">Configuración incorrecta. Contacte al soporte técnico</string>
     <string name="sync_failed_connection_failed_try_again">La conexión ha fallado. ¿Intentar de nuevo?</string>
-    <string name="connection_failed">La conexión ha fallado</string>
+    <string name="connection_failed">No se pudo realizar la sincronización. Por favor, verifica tu conexión a Internet.</string>
     <string name="sync_failed_connection_timeout_try_again">Tiempo de espera de conexión superado. ¿Intentar de nuevo?</string>
     <string name="sync_failed_connection_timeout">Tiempo de espera de conexión superado</string>
     <string name="sync_failed_http_error_try_again">Error HTTP. Si el problema persiste contacte al soporte técnico. ¿Intentar de nuevo?</string>
@@ -101,7 +101,8 @@
     <string name="clear_documents">Borrar documentos sincronizados</string>
     <string name="synchronizing_metadata">Sincronizando metadatos</string>
     <string name="clear_documents_message">Todos los documentos sincronizados serán borrados. ¿Desea continuar?</string>
-    <string name="server_unreachable">Servidor inalcanzable</string>
+    <string name="server_unreachable">La sincronización se llevará a cabo una vez que se restablezca la conexión. Intenta de nuevo más tarde.</string>
+    <string name="server_unreacheable_title">Sincronización pendiente</string>
     <string name="unexpected_error">Error inesperado</string>
     <string name="invalid_user">Usuario inválido</string>
     <string name="database_copied">Archivo de SQLite copiado a %s</string>
@@ -162,7 +163,7 @@
     <string name="no_valid_file">%s no tiene archivo válido</string>
     <string name="server_response_not_200">Respuesta del servidor inválida: %1$d  URL: %2$s</string>
     <string name="android_application">Aplicación Android</string>
-    <string name="document_status_not_synced">No sincronizado</string>
+    <string name="document_status_not_synced">Sincronización pendiente</string>
     <string name="document_status_sync_failed">Sincronización fallida</string>
     <string name="document_status_sync_in_progress">Sincronizando</string>
     <string name="document_status_rejected">Rechazado por el servidor</string>
@@ -222,5 +223,5 @@
     <string name="permissions_location_text">La aplicación Chake requiere el permiso de Ubicación del teléfono para poder utilizar esta funcionalidad.</string>
     <string name="gps_required">Activar ubicación</string>
     <string name="gps_disabled_message">Por favor, activa el GPS para registrar las denuncias de manera precisa.</string>
-    <string name="open_settings">Abrir Configuración</string>
+    <string name="activate_gps">Activar</string>
 </resources>

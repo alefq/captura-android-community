@@ -5,11 +5,15 @@ import io.github.jokoframework.chake.R;
 import py.com.sodep.mobileforms.location.MFLocationManager;
 import py.com.sodep.mobileforms.ui.FormActivity;
 import py.com.sodep.mobileforms.util.PermissionsHelper;
+import py.com.sodep.mobileforms.util.Util;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentSender;
 import android.graphics.Color;
 import android.location.LocationManager;
 import android.net.Uri;
@@ -19,13 +23,25 @@ import android.os.Message;
 import android.provider.Settings;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 
+import com.google.android.gms.common.api.ResolvableApiException;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationSettingsRequest;
+import com.google.android.gms.location.LocationSettingsResponse;
+import com.google.android.gms.location.Priority;
+import com.google.android.gms.location.SettingsClient;
+import com.google.android.gms.tasks.Task;
+
 class UILocationRenderer {
+
+	private static final String LOG_TAG = Util.class.getSimpleName();
 
 	private MFElement element;
 
@@ -157,10 +173,10 @@ class UILocationRenderer {
 						locationButton.setVisibility(View.GONE);
 						tickHandler.post(tickRunnable);
 					} else {
-						showGPSRequiredDialog();
+						requestGPSActivation();
 					}
 				} else {
-					PermissionsHelper.checkAndAskForPermissions( (FormActivity) context,
+					PermissionsHelper.checkAndAskForPermissions( (Activity) context,
 							R.string.permissions_location_text,
 							Manifest.permission.ACCESS_FINE_LOCATION);
 				}
@@ -181,12 +197,35 @@ class UILocationRenderer {
 		return locationButton;
 	}
 
+	private void requestGPSActivation() {
+		LocationRequest locationRequest = new LocationRequest.Builder(5000)
+				.setPriority(Priority.PRIORITY_HIGH_ACCURACY)
+				.build();
+
+		LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
+				.addLocationRequest(locationRequest);
+
+		SettingsClient settingsClient = LocationServices.getSettingsClient(context);
+		Task<LocationSettingsResponse> task = settingsClient.checkLocationSettings(builder.build());
+
+		task.addOnFailureListener(e -> {
+			if (e instanceof ResolvableApiException) {
+				try {
+					ResolvableApiException resolvable = (ResolvableApiException) e;
+					resolvable.startResolutionForResult((Activity) context, FormActivity.REQUEST_LOCATION);
+				} catch (IntentSender.SendIntentException sendEx) {
+					Log.d(LOG_TAG, "error GPS activated:" + sendEx.getMessage());
+				}
+			}
+		});
+	}
+
 	private void showGPSRequiredDialog() {
 		AlertDialog.Builder alertBuilder = new AlertDialog.Builder(context);
 		alertBuilder.setCancelable(true);
 		alertBuilder.setTitle(R.string.gps_required);
 		alertBuilder.setMessage(R.string.gps_disabled_message);
-		alertBuilder.setPositiveButton(R.string.open_settings, new DialogInterface.OnClickListener() {
+		alertBuilder.setPositiveButton(R.string.activate_gps, new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int id) {
 				Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
 				context.startActivity(intent);

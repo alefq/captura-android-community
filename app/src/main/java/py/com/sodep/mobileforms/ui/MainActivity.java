@@ -845,8 +845,7 @@ public class MainActivity extends AppCompatActivity implements TabListener {
 		FirebaseCrashlytics crashlytics = FirebaseCrashlytics.getInstance();
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-		builder.setTitle(R.string.sync_error);
-
+		String title = "";
 		String message = getString(R.string.sync_failed);
 		SynchronizationError.ErrorType errorType = synchronizationError.getType();
 		Exception synchronizationErrorException = synchronizationError.getException();
@@ -893,6 +892,7 @@ public class MainActivity extends AppCompatActivity implements TabListener {
 			crashlytics.recordException(new SodepException(message));
 			break;
 		case SERVER_UNREACHABLE:
+			title = getString(R.string.server_unreacheable_title);
 			message = getString(R.string.server_unreachable);
 			crashlytics.recordException(new SodepException(message));
 			break;
@@ -907,7 +907,12 @@ public class MainActivity extends AppCompatActivity implements TabListener {
 			break;
 		}
 
-		builder.setTitle(R.string.sync_error);
+		if(!title.isEmpty()) {
+			builder.setTitle(title);
+		} else {
+			builder.setTitle(R.string.sync_error);
+		}
+
 		builder.setMessage(message);
 		builder.setCancelable(false);
 		builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {

@@ -102,7 +102,8 @@
     <string name="clear_documents">Clear synced documents</string>
     <string name="synchronizing_metadata">Synchronizing metadata</string>
     <string name="clear_documents_message">All synced documents will be deleted. Do you wish to continue?</string>
-    <string name="server_unreachable">Server Unreachable</string>
+    <string name="server_unreachable">The synchronization will take place once the connection is restored. Please try again later.</string>
+    <string name="server_unreacheable_title">Synchronization Pending</string>
     <string name="unexpected_error">Unexpected Error</string>
     <string name="invalid_user">Invalid User</string>
     <string name="database_copied">SQLite file copied to %s</string>
@@ -163,7 +164,7 @@
     <string name="no_valid_file">%s has no valid file</string>
     <string name="server_response_not_200">Invalid server response: %1$d  URL: %2$s</string>
     <string name="android_application">Android Application</string>
-    <string name="document_status_not_synced">Not synchronized</string>
+    <string name="document_status_not_synced">Synchronization Pending</string>
     <string name="document_status_sync_failed">Synchronization failed</string>
     <string name="document_status_sync_in_progress">Sync in progress</string>
     <string name="document_status_rejected">Rejected by server</string>
@@ -223,5 +224,5 @@
     <string name="permissions_location_text">The Chake app requires phone location permission to use this functionality.</string>
     <string name="gps_required">Activate location</string>
     <string name="gps_disabled_message">Please enable GPS to register complaints accurately.</string>
-    <string name="open_settings">Open Settings</string>
+    <string name="activate_gps">Activate</string>
 </resources>

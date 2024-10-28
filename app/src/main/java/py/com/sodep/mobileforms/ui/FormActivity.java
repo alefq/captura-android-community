@@ -1,5 +1,6 @@
 package py.com.sodep.mobileforms.ui;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -217,16 +218,23 @@ public class FormActivity extends AppCompatActivity {
 
     public static final int SIGNATURE_REQUEST = 1339;
 
+    public static final int REQUEST_LOCATION = 1340;
+
     private final byte[] buffer = new byte[2048];
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
         if (resultCode == RESULT_OK && (requestCode == CAMERA_PIC_REQUEST || requestCode == SIGNATURE_REQUEST)) {
             processCameraPicRequestResult(intent);
         } else if (resultCode == RESULT_OK && requestCode == BARCODE_SCAN) {
             processBarCodeScanResult(intent);
         } else if (resultCode == RESULT_CANCELED && requestCode == SIGNATURE_REQUEST) {
             processNoSignature();
+        }
+
+        if (requestCode == REQUEST_LOCATION && resultCode == Activity.RESULT_OK) {
+            Toast.makeText(this, "GPS activado", Toast.LENGTH_SHORT).show();
         }
     }
 
