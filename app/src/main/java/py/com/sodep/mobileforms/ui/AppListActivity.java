@@ -23,7 +23,6 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-import py.com.sodep.ui.common.Eula;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;

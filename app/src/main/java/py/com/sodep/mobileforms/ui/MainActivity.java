@@ -71,7 +71,6 @@ import py.com.sodep.mobileforms.dataservices.sql.SQLDocumentsDataSource;
 import py.com.sodep.mobileforms.dataservices.sql.SQLFormsDAO;
 import py.com.sodep.mobileforms.dataservices.sql.SQLLookupDataSource;
 import py.com.sodep.mobileforms.dataservices.sql.SQLProjectsDAO;
-import py.com.sodep.mobileforms.net.sync.DocumentsSync;
 import py.com.sodep.mobileforms.net.sync.services.SyncService;
 import py.com.sodep.mobileforms.settings.AppSettings;
 import py.com.sodep.mobileforms.ui.list.DocumentsAdapter;
@@ -348,6 +347,11 @@ public class MainActivity extends AppCompatActivity implements TabListener {
 		finish();
 	}
 
+	private void initSync() {
+		Intent syncService = new Intent(this, SyncService.class);
+		startService(syncService);
+	}
+
 	private void initMain() {
 		Application app = getCurrentApp();
 		if (app == null) {
@@ -355,6 +359,9 @@ public class MainActivity extends AppCompatActivity implements TabListener {
 			initActivation();
 			return;
 		}
+
+		initSync();
+
 		getSupportActionBar().setTitle(app.getLabel());
 		setContentView(R.layout.main);
 		initProjectsListView(app.getId());

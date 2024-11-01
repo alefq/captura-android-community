@@ -1,5 +1,6 @@
 package py.com.sodep.mobileforms.ui;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -71,7 +72,7 @@ public class ActivationActivity extends Activity {
             public void onClick(View v) {
                 if (PermissionsHelper.checkAndAskForPermissions(ActivationActivity.this,
                         R.string.permissions_dialog_text,
-                        PermissionsHelper.PERMISSIONS)) {
+                        Manifest.permission.READ_PHONE_STATE)) {
                     email = emailEditText.getText().toString();
                     if (isValidEmail(email)) {
                         activateDevice(email);

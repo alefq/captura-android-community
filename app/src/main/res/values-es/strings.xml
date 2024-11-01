@@ -196,7 +196,7 @@
     <string name="email_address_format_hint">usuario@dominio.com</string>
     <string name="grant_permission">Conceder</string>
     <string name="permissions_dialog_title">Conceder Permisos</string>
-    <string name="permissions_dialog_text">La aplicación Chake requiere los permisos de Gestión de Llamadas y Ubicación del teléfono para mejorar la funcionalidad de la app.</string>
+    <string name="permissions_dialog_text">La aplicación Chake requiere el permiso de Gestión de Llamadas para recolectar datos del dispositivo necesarios para su activación.</string>
     <string name="permissions_camera_text">La aplicación de Chake requiere los permisos de acceder a la cámara y los archivos del dispositivo para poder utilizar esta funcionalidad.</string>
     <string name="prompt_accept">Aceptar</string>
     <string name="prompt_cancel">Cancelar</string>
