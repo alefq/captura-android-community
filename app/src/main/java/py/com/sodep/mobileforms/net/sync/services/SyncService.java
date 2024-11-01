@@ -43,7 +43,7 @@ public class SyncService extends IntentService {
 
 	private static final int SYNC_OUTCOME_NOTIFICATION = 2;
 
-	private static final int icon = R.drawable.ic_notification;
+	private static final int icon = R.drawable.ic_launcher;
 	private static final String CHANNEL_ID = "Notification";
 	private static final int NOTIFICATION_ID = 999;
     private static final String LOG_TAG = SyncService.class.getSimpleName();
